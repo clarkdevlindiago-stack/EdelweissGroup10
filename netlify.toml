@@ -1,0 +1,10 @@
+# Plain static site (HTML + images) with no build step.
+[build]
+  publish = "."
+  command = ""
+
+# The site has no index.html; serve Food.html at the root URL.
+[[redirects]]
+  from = "/"
+  to = "/Food.html"
+  status = 200
