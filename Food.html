@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Traditional Delicacies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #C41E3A;
+            --secondary: #FFD700;
+            --dark: #2C1810;
+            --light: #FFF8F0;
+            --text: #333;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), #8B0000);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .logo span { color: var(--secondary); }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--secondary); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        #home {
+            height: 100vh;
+            background: linear-gradient(rgba(44,24,16,0.65), rgba(44,24,16,0.65)),
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Halo-Halo.jpg/1200px-Halo-Halo.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 70px;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .btn:hover { transform: translateY(-3px); background: #FFC107; }
+
+        section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        #about .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        #about img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        #about p { margin-bottom: 1rem; font-size: 1.05rem; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover { transform: translateY(-8px); }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .gallery-item .caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: 0;
+        }
+        .video-title {
+            text-align: center;
+            margin-top: 0.8rem;
+            font-weight: 600;
+        }
+
+        #contact {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        form {
+            display: grid;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            padding: 0.9rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        textarea { min-height: 120px; resize: vertical; }
+        button[type="submit"] {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover { background: #A01830; }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+            nav ul.active { display: flex; }
+            .hero-content h1 { font-size: 2.4rem; }
+            #about .content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Sarap <span>ng</span> Pinas</div>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+            <ul id="nav-menu">
+                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Filipino Traditional Delicacies</h1>
+            <p>Discover the sweet and colorful world of kakanin and classic Filipino treats.</p>
+            <a href="#gallery" class="btn">Explore the Gallery</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <div class="content">
+            <div>
+                <p>Filipino traditional delicacies, especially <strong>kakanin</strong>, are an important part of Philippine culture. The word comes from “kain” (to eat) and “kanin” (rice). These rice-based sweets have been enjoyed for centuries.</p>
+                <p>Lumpiang Shanghai
+Nagmula ang konsepto nito sa China, partikular sa tradisyon ng paggawa ng spring rolls. Dinala ito ng mga mangangalakal na Tsino sa Pilipinas at binago ng mga Pilipino gamit ang sariling sangkap at paraan ng pagluluto.. Lugaw / Arroz Caldo
+May impluwensiya ito mula sa China. Ang rice porridge ay naging bahagi ng kulturang Pilipino at kalaunan ay nagkaroon ng sariling bersyon na tinawag na lugaw at arroz caldo.Ulam na Hipon
+Ang hipon ay karaniwang sangkap sa pagkaing Pilipino. May mga paraan ng pagluluto nito tulad ng halabos na hipon na nagmula sa Pilipinas.Bulalo
+Nagmula ito sa Batangas, Pilipinas. Kilala ito sa sabaw na niluluto kasama ang buto at laman ng baka. Sumikat din ito sa Tagaytay at iba pang lugar sa bansa.Menudo
+May impluwensiya ito mula sa Spain. Dinala ng mga Espanyol ang kanilang mga paraan ng pagluluto sa Pilipinas at inangkop ito ng mga Pilipino gamit ang lokal na sangkap tulad ng baboy, patatas, carrots at kamatis.</p>
+            </div>
+            <img src="Sf.jpeg" alt="Philippine Street Food">
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p style="text-align:center; margin-bottom:2rem;">Six classic Filipino delicacies and three videos</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="Bulalo.jpeg" alt="Bulalo">
+                <div class="caption">Bulalo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Lugaw.jpeg" alt="Lugaw">
+                <div class="caption">Lugaw</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Kaldereta.jpeg" alt="Kaldereta">
+                <div class="caption">Menudo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Shanghai .jpeg" alt="Shanghai">
+                <div class="caption">Shanghai</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Shrimp.jpeg" alt="Shrimp">
+                <div class="caption">Shrimp</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Pancit.jpeg" alt="Pancit">
+                <div class="caption">Pancit</div>
+            </div>
+        </div>
+      <!-- Three new group of four photos -->
+            <div class="gallery-item">
+                <img src="pt1.jpeg" alt="Group of four friends sharing a meal">
+                <div class="caption">Group pic No.1</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pt2.jpeg" alt="Friends enjoying food together">
+                <div class="caption">Group pic No.2</div>
+            </div>
+            <div class="gallery-item">
+                <img src="pt3.jpeg" alt="Group of friends eating outdoors">
+                <div class="caption">Group pic No.3</div>
+            </div>
+        </div>
+        <h3 style="text-align:center; margin:2rem 0 1.5rem; color:var(--primary); font-family:'Playfair Display',serif;">Videos</h3>
+        <div class="videos">
+            <div>
+                <div class="video-container">
+                    <iframe src="https://youtube.com/shorts/I1o4uB0DlRQ?si=Oj1_XJvOyJizj3zl" title="Bulalo" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">How to Make Halo-Halo</div>
+            </div>
+            <div>
+                <div class="video-container">
+                    <iframe src="https://youtube.com/shorts/h2J9Zsn4LzM?si=-iPqbkE0E3gDzIgt" title="Shanghai" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">How to Make Special Turon</div>
+            </div>
+            <div>
+                <div class="video-container">
+                    <iframe src="https://youtube.com/shorts/U0r8NsbPw5E?si=DjM4cm4KQ1CP-IMz" title="Lugaw" allowfullscreen></iframe>
+                </div>
+                <div class="video-title">Homemade Halo-Halo</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p style="text-align:center; margin-bottom:2rem;">Have a question or want to share your favorite recipe?</p>
+        <form onsubmit="handleSubmit">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Filipino Traditional Delicacies</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+        function handleSubmit() {
+            e.preventDefault();
+            alert('Thank you! Your message has been received.');
+            e.target.reset();
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
