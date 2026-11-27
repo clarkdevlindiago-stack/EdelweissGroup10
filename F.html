@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+<body bgcolor="lightblue">
+    <h1>Student Registration Form</h1>
+    <form>
+        <table border="1">
+            <tr>
+                <td>Username:</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email"></td>
+            </tr>
+            <tr>
+                <td>Birth Date:</td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="g">Male
+                    <input type="radio" name="g">Female
+                    <input type="radio" name="g">Other
+                </td>
+            </tr>
+            <tr>
+                <td>Course:</td>
+                <td>
+                    <select>
+                        <option>Choose Course</option>
+                        <option>BS Computer Science</option>
+                        <option>BS Information Technology</option>
+                        <option>BS Engineering</option>
+                        <option>BS Business Administration</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>
+                    <input list="city">
+                    <datalist id="city">
+                        <option value="Nasugbu">
+                        <option value="Balayan">
+                        <option value="Tuy">
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td>Hobbies:</td>
+                <td>
+                    <input type="checkbox">Sports
+                    <input type="checkbox">Music
+                    <input type="checkbox">Coding
+                </td>
+            </tr>
+            <tr>
+                <td>Bio / Address:</td>
+                <td><textarea></textarea></td>
+            </tr>
+            <tr>
+                <td>Upload Photo:</td>
+                <td><input type="file"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Register Student">
+                    <input type="reset" value="Clear Form">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

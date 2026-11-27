@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The CSS Box Shadow and Transformation</title>
+    <style>
+        body {
+            background-color: #C4A887;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        .box {
+            background-color: white;
+            width: 400px;
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .greeting {
+            background-color: #D8D0C7;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <img src="myself.jpg" alt="Sample Image">
+
+        <div class="greeting">
+            <marquee behavior="scroll" direction="left">
+                Hello, Clark Declin P Diago!
+            </marquee>
+        </div>
+    </div>
+
+</body>
+</html>
